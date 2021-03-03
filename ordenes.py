@@ -110,11 +110,11 @@ class Orden:
         self.pagina3 = ttk.Frame(self.notebook1)
         self.notebook1.add(self.pagina3, text="Ordenar Libro")
 
-        #Titulo Pestaña
+        #TITULO PESTAÑA
         self.labelframe2 = ttk.LabelFrame(self.pagina3, text="Ordenar")
         self.labelframe2.grid(column=0, row=0, padx=50, pady=10)
 
-        #Documento ORDEN
+        #DOCUMENTO ORDEN
         self.label7 = ttk.Label(self.labelframe2, text="Documento: ")
         self.label7.grid(column=0, row=0, padx=4, pady=4)
         self.documentloadorden = tk.StringVar() 
@@ -160,5 +160,6 @@ class Orden:
         self.scrolledtext2.delete("1.0", tk.END) 
         for fila in answer: 
             self.scrolledtext2.insert(tk.END, "Numero Orden: "+str(fila[0])+"\nDocumento: "+str(fila[1])+"\nNombres: "+str(fila[2])+"\nApellidos: "+str(fila[3])+"\nNombre Libro: "+str(fila[4])+"\nAutor Libro: "+str(fila[5])+"\nPrecio Libro: "+str(fila[6])+"\nFecha Orden: "+str(fila[7])+"\n\n")       
+
 
 app = Orden()
