@@ -15,6 +15,7 @@ class Libro:
         cursor.execute(sql, datos)      
         cone.commit()                  
         cone.close()
+        
 
     def insert_ord (self, datos):
         try:
@@ -29,7 +30,6 @@ class Libro:
         except Exception as ex:
             print(ex)
             return False
-        #return True
 
     def retrieve_all(self):
         cone = self.abrir()
