@@ -136,7 +136,7 @@ class Orden:
         datos = (self.documentloadorden.get(), self.chargecodigolibro.get())
         yes = self.libro.insert_ord(datos)
         if yes == True:
-            mb.showinfo("Información", "Los datos cargaron correctamente")
+            mb.showinfo("Información!!", "Los datos cargaron correctamente")
         else:
             mb.showerror("Alerta!!" , 'No se puede registrar la orden\nDatos incorrectos\n\nVerifique de nuevo')
 
