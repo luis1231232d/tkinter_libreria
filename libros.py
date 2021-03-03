@@ -15,7 +15,6 @@ class Libro:
         cursor.execute(sql, datos)      
         cone.commit()                  
         cone.close()
-        
 
     def insert_ord (self, datos):
         try:
@@ -27,7 +26,7 @@ class Libro:
             cone.commit()
             cone.close()
             return True
-            
+
         except Exception as ex:
             print(ex)
             return False
