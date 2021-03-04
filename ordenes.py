@@ -122,11 +122,16 @@ class Orden:
         self.entrydocumentorden.grid(column=1, row=0, padx=4, pady=4)
 
         #CODIGO LIBRO
-        self.label8 = ttk.Label(self.labelframe2, text="Codigo del libro: ")
+        self.label8 = ttk.Label(self.labelframe2, text="Libros: ")
         self.label8.grid(column=0, row=1, padx=4, pady=4)
         self.chargecodigolibro = tk.StringVar()   
         self.entrycodigolibro = ttk.Entry(self.labelframe2, textvariable=self.chargecodigolibro)
-        self.entrycodigolibro.grid(column=1, row=1, padx=4, pady=4)
+        self.chargecodigolibro = ttk.Combobox(self.labelframe2)
+        self.chargecodigolibro.grid(column=1, row=1, padx=2, pady=2)
+        self.chargecodigolibro['values'] = ('1 - Edipo Rey ','2 -  La flecha negra','3 - Robbie y otros relatos', '4 - Relatos espectrales', '5 - Madame Bovary')
+        self.chargecodigolibro.current(0)
+        
+
 
         #BOTON
         self.boton2 = ttk.Button(self.labelframe2, text="Ordenar", command=self.addord)

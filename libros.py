@@ -9,12 +9,17 @@ class Libro:
         return conexion
     
     def insert (self, datos):
-        cone = self.abrir()
-        cursor = cone.cursor()          
-        sql = "INSERT INTO clientes(Documento, Nombre, Apellido, Direccion, Ciudad, Codigo_Postal) VALUES (%s,%s,%s,%s,%s,%s)"
-        cursor.execute(sql, datos)      
-        cone.commit()                  
-        cone.close()
+        try:
+            cone = self.abrir()
+            cursor = cone.cursor()          
+            sql = "INSERT INTO clientes(Documento, Nombre, Apellido, Direccion, Ciudad, Codigo_Postal) VALUES (%s,%s,%s,%s,%s,%s)"
+            cursor.execute(sql, datos)      
+            cone.commit()                  
+            cone.close()
+            return True
+        except Exception as ex1:
+            print(ex1)
+            return False
 
     def insert_ord (self, datos):
         try:
@@ -34,7 +39,7 @@ class Libro:
     def retrieve_all(self):
         cone = self.abrir()
         cursor = cone.cursor()      
-        sql = "SELECT Id_libro,Titulo,Nom_Autor,Categoria,Precio FROM libros"
+        sql = "SELECT Id_libro,Titulo,Nom_Autor,nom_categoria,Precio FROM libros,categoria where libros.id_categoria = categoria.id_categoria"
         cursor.execute(sql)         
         cone.close()                
         return cursor.fetchall()
